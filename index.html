@@ -185,7 +185,7 @@
             border-top: 1px solid #1f1f1f;
             color: #666;
         }
-        /* Кнопки соцсетей */
+        /* Стиль для кнопок соцсетей */
         .socials-grid {
             display: flex;
             flex-wrap: wrap;
@@ -240,19 +240,62 @@
             text-align: center;
             color: #888;
         }
-        /* Донат: заглушка "скоро!" */
-        .donate-placeholder {
-            text-align: center;
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            padding: 50px 20px;
-            color: #aaa;
+        /* Донат таблицы */
+        .donate-category {
+            margin-bottom: 40px;
+        }
+        .donate-category h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            border-left: 3px solid #6fbf30;
+            padding-left: 16px;
+        }
+        .donate-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #111;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .donate-table th, .donate-table td {
+            border: 1px solid #2a2a2a;
+            padding: 12px 16px;
+            text-align: left;
+            vertical-align: top;
+        }
+        .donate-table th {
+            background: #1a1a1a;
+            color: #ddd;
+            font-weight: 600;
+        }
+        .donate-table td {
+            background: #0c0c0c;
+            color: #bbb;
+        }
+        .price {
+            white-space: nowrap;
+            font-weight: 500;
+            color: #fff;
+        }
+        .principles {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            border-left: 4px solid #6fbf30;
+        }
+        .rank-badge {
+            color: #ffd966;
         }
         @media (max-width: 780px) {
             .header { flex-direction: column; gap: 20px; }
             .section-title { font-size: 1.6rem; }
             .socials-grid { flex-direction: column; }
+            .donate-table th, .donate-table td {
+                padding: 8px 10px;
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
@@ -303,7 +346,6 @@
 
     <!-- ВИКИ -->
     <div id="wiki" class="tab-content">
-        <h2 class="section-title"><i class="fas fa-book-open"></i> Вики проекта</h2>
         <div class="wiki-block">
             <h3><i class="fas fa-history"></i> История создания</h3>
             <p>Идея создания сервера зародилась в конце 2025 года, когда основатель проекта "Mircon" захотел создать уникальный RPG-сервер по вселенной Bleach. В отличие от обычных серверов, здесь сделан упор на глубокую прокачку рас, кастомные механики (Занпакто, Банкай) и максимальное погружение в мир. Разработка началась в начале 2026 года, и сейчас сервер находится в активной фазе создания.</p>
@@ -322,9 +364,9 @@
             <h3><i class="fas fa-cogs"></i> Основные механики</h3>
             <ul>
                 <li><strong>Способности</strong> — уникальные навыки для каждой расы (шинигами, пустые, квинси). Кастомизация билдов, изучение техник.</li>
-                <li><strong>Рейацу</strong> — духовная энергия. Влияет на силу атак, защиту и доступ к особым приёмам. Восстанавливается со временем и в бою.</li>
+                <li><strong>Рейацу</strong> — духовная энергия. Влияет на силу атак, защиту и доступ к особым приёмам.</li>
                 <li><strong>Бой с пустыми</strong> — охота на пустых, адьюкасов в Уэко Мундо. Чем сильнее враг, тем ценнее добыча.</li>
-                <li><strong>Ежедневные квесты</strong> — задания от капитанов Готея 13, которые приносят опыт, рейацу и редкие предметы.</li>
+                <li><strong>Ежедневные квесты</strong> — задания от капитанов Готея 13, приносящие опыт, рейацу и редкие предметы.</li>
             </ul>
         </div>
         <div class="wiki-block">
@@ -342,7 +384,7 @@
         </div>
     </div>
 
-    <!-- АВТОР/СОЦ.СЕТИ (исправлено) -->
+    <!-- АВТОР/СОЦ.СЕТИ -->
     <div id="author" class="tab-content">
         <h2 class="section-title"><i class="fas fa-user-astronaut"></i> Автор и соц. сети</h2>
         <div class="socials-grid">
@@ -366,12 +408,108 @@
         </div>
     </div>
 
-    <!-- ДОНАТ (заглушка "скоро!") -->
+    <!-- ДОНАТ (НОВОЕ МЕНЮ) -->
     <div id="donate" class="tab-content">
         <h2 class="section-title"><i class="fas fa-hand-holding-heart"></i> Поддержать сервер</h2>
-        <div class="donate-box" style="text-align:center;">
-            <div class="donate-placeholder">
-                скоро!
+        <div class="donate-box" style="padding: 32px;">
+            <div class="principles">
+                <i class="fas fa-balance-scale"></i> <strong>Принципы доната:</strong> нет прямого PvP-преимущества, только визуал, комфорт и ускорение прогресса (без нарушения баланса). Цены примерные, могут меняться.
+            </div>
+
+            <!-- Косметика -->
+            <div class="donate-category">
+                <h3>🎨 Косметика и кастомизация</h3>
+                <table class="donate-table">
+                    <thead>
+                        <tr><th>Название</th><th>Описание</th><th>Цена (₽)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Эксклюзивный титул</td><td>Цветной префикс в чате (например, «§bХранитель душ»)</td><td class="price">100</td></tr>
+                        <tr><td>Питомец</td><td>Мини-Кон, Нелл (в детской форме), Дзюринью – не мешает бою</td><td class="price">200</td></tr>
+                        <tr><td>Эмодзи / эффект смерти</td><td>Спецэффект при смерти (взрыв рейацу, падение маски)</td><td class="price">100</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Занпакто -->
+            <div class="donate-category">
+                <h3>🗡️ Занпакто</h3>
+                <table class="donate-table">
+                    <thead><tr><th>Название</th><th>Описание</th><th>Цена (₽)</th></tr></thead>
+                    <tbody>
+                        <tr><td>Эксклюзивная способность</td><td>Одна дополнительная способность (не дисбалансная, декоративная или с длинным кулдауном)</td><td class="price">300</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Игровые преимущества без PvP-дисбаланса -->
+            <div class="donate-category">
+                <h3>⚡ Игровые преимущества (без PvP-дисбаланса)</h3>
+                <table class="donate-table">
+                    <thead><tr><th>Название</th><th>Описание</th><th>Цена (₽)</th></tr></thead>
+                    <tbody>
+                        <tr><td>Буст опыта</td><td>+50% к опыту на 24 часа (только от убийства пустых)</td><td class="price">100</td></tr>
+                        <tr><td>Буст эссенций</td><td>+50% к эссенциям на 24 часа</td><td class="price">100</td></tr>
+                        <tr><td>Набор новичка</td><td>20 эссенций + 2 свитка телепортации (не дает преимущества в PvP)</td><td class="price">50</td></tr>
+                        <tr><td>Увеличение лимита домов</td><td>+1 дом (команда `/sethome`)</td><td class="price">100</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Сервисы и удобства -->
+            <div class="donate-category">
+                <h3>🛠️ Сервисы и удобства</h3>
+                <table class="donate-table">
+                    <thead><tr><th>Название</th><th>Описание</th><th>Цена (₽)</th></tr></thead>
+                    <tbody>
+                        <tr><td>Смена имени занпакто</td><td>Изменить название своего асаучи/шикая/банкая (визуально)</td><td class="price">150</td></tr>
+                        <tr><td>Сброс способностей</td><td>Перераспределить очки изученных способностей (полный возврат эссенций)</td><td class="price">200</td></tr>
+                        <tr><td>Телепорт к маркеру</td><td>Установить личную точку `/tpa` (до 3 точек)</td><td class="price">50</td></tr>
+                        <tr><td>Дополнительный слот экипировки</td><td>(В будущем) дополнительное кольцо или аксессуар</td><td class="price">100</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Кейсы / Лутбоксы -->
+            <div class="donate-category">
+                <h3>🎁 Кейсы / Лутбоксы</h3>
+                <table class="donate-table">
+                    <thead><tr><th>Название</th><th>Описание</th><th>Цена (₽)</th></tr></thead>
+                    <tbody>
+                        <tr><td>Обычный кейс</td><td>Случайный предмет из категорий 1–4 (шанс: обычный – 60%, редкий – 30%, эпический – 9%, легендарный – 1%)</td><td class="price">100</td></tr>
+                        <tr><td>Легендарный кейс</td><td>Гарантированно редкий или эпический предмет</td><td class="price">300</td></tr>
+                    </tbody>
+                </table>
+                <p style="font-size: 0.85rem; color: #aaa; margin-top: 8px;">⭐ <strong>Пример легендарного дропа:</strong> эксклюзивная способность, уникальный скин занпакто с анимацией, питомец-босс (кастомная модель).</p>
+            </div>
+
+            <!-- Привилегии (ежемесячная подписка) -->
+            <div class="donate-category">
+                <h3>👑 Привилегии (ежемесячная подписка)</h3>
+                <table class="donate-table">
+                    <thead><tr><th>Ранг</th><th>Бонусы</th><th>Цена (₽/мес)</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td class="rank-badge"><strong>Вице-капитан</strong></td>
+                            <td>+20% опыта, +10% эссенций, доступ к командам `/hat` и `/workbench`, эксклюзивный титул, приоритетная поддержка</td>
+                            <td class="price">300</td>
+                        </tr>
+                        <tr>
+                            <td class="rank-badge"><strong>Капитан</strong></td>
+                            <td>+30% опыта, +20% эссенций, возможность установить 2 дополнительных дома, доступ к `/craft`, `/enchant`, `/repair`, уникальный плащ с частицами</td>
+                            <td class="price">500</td>
+                        </tr>
+                        <tr>
+                            <td class="rank-badge"><strong>Капитан Готея</strong></td>
+                            <td>Все бонусы Капитана + ежемесячный легендарный кейс, доступ к `/fly` (только в не-PvP зонах), золотой ник</td>
+                            <td class="price">800</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px; padding: 16px; background: #111; border-radius: 28px;">
+                <i class="fab fa-discord"></i> Для приобретения доната обращайтесь в Discord сервера (раздел «Автор/Соц.сети»). Все средства идут на развитие проекта.
             </div>
         </div>
     </div>
